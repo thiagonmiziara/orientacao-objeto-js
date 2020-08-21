@@ -7,11 +7,29 @@ export class Conta {
 
     }
 
+    set cliente(novoValor) {
+        if (novoValor instanceof cliente) {
+            this._cliente = novoValor;
+        }
+
+    }
+
+    get cliente() {
+        return this._cliente;
+    }
+
+
+    get saldo() {
+        return this._saldo;
+    }
+
     sacar(valor) {
-        taxa = 1.1 * valor;
-        if (this._saldo >= valor) {
-            this._saldo -= valor;
-            return valor;
+
+        let taxa = 1;
+        const valorSacado = taxa * valor;
+        if (this._saldo >= valorSacado) {
+            this._saldo -= valorSacado;
+            return valorSacado;
         }
     }
 
